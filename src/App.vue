@@ -5,14 +5,14 @@
         <input type="text" class="search-bar" placeholder="Search..." v-model="query" @keypress="fetchWeather" />
       </div>
       {{ query}}
-      <div class="weather-wrap">
+      <div class="weather-wrap" v-if="typeof weather.main !== 'undefined'">
         <div class="location-box">
-          <div class="location">Sayre PA</div>
+          <div class="location">{{weather.name}}, {{weather.sys.country}}</div>
           <div class="date">Tuesday June 16 2021</div>
         </div>
         <div class="weather-box">
-          <div class="temp">68</div>
-          <div class="weather">Sunny</div>
+          <div class="temp">{{ Math.round((weather.main.temp - 273.15) * 9 / 5 + 32) }} </div>
+          <div class="weather">{{ weather.weather[0].main}}</div>
         </div>
       </div>
     </main>
