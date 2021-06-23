@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="typeof weather.main !== 'undefined' && weather.main.temp > 50 ? 'warm' : ''">
     <main>
       <div class="search-box">
         <input type="text" class="search-bar" placeholder="Search..." v-model="query" @keypress="fetchWeather" />
@@ -73,10 +73,14 @@ body {
 }
 
 #app {
-  background-image: url("./assets/warm.png");
+  background-image: url("./assets/cold.jpg");
   background-size: cover;
   background-position: bottom;
   transition: 0.4s;
+}
+
+#app.warm {
+  background-image: url("./assets/warm.png")
 }
 
 main {
