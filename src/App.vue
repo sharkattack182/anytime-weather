@@ -4,7 +4,6 @@
       <div class="search-box">
         <input type="text" class="search-bar" placeholder="Search..." v-model="query" @keypress="fetchWeather" />
       </div>
-      {{ query}}
       <div class="weather-wrap" v-if="typeof weather.main !== 'undefined'">
         <div class="location-box">
           <div class="location">{{weather.name}}, {{weather.sys.country}}</div>
